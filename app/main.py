@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def index():
+async def root():
     """
     Index route for our application
     """
