@@ -26,20 +26,12 @@ pipeline {
                 bat 'start /B docker-compose -f docker-compose-monitoring.yml up --build'
             }
         }
-        stage('Email') {
-            steps {
-                emailext (
-                    subject: "FastAPI Docker Deployment Status",
-                    body: "The FastAPI Docker deployment has been completed.",
-                    to: "bhushan881995@gmail.com",
-                    mimeType: 'text/html'
-                )
+        post {
+        always {
+            bat 'start /B docker-compose down'
+            bat 'start /B docker-compose -f docker-compose-monitoring.yml down'
             }
         }
         
     }
-    
-
-
-    
 }
