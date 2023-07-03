@@ -26,7 +26,19 @@ pipeline {
                 bat 'start /B docker-compose -f docker-compose-monitoring.yml up --build'
             }
         }
+        stage('Email') {
+            steps {
+                emailext (
+                    subject: 'FastAPI Docker Deployment - Pipeline Status: ${currentBuild.currentResult}',
+                    body: 'The FastAPI Docker deployment pipeline has completed. Current status: ${currentBuild.currentResult}',
+                    recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                    to: 'bhushan881995@gmail.com',
+                    attachLog: true
+                )
+            }
+        }
     }
+
 
     
 }
