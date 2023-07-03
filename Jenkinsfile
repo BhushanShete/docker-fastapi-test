@@ -26,12 +26,11 @@ pipeline {
                 bat 'start /B docker-compose -f docker-compose-monitoring.yml up --build'
             }
         }
-        post {
-            always {
-                bat 'start /B docker-compose down'
-                bat 'start /B docker-compose -f docker-compose-monitoring.yml down'
-            }
+    }
+    post {
+        always {
+            bat 'start /B docker-compose down'
+            bat 'start /B docker-compose -f docker-compose-monitoring.yml down'
         }
-        
     }
 }
