@@ -34,7 +34,7 @@ pipeline {
                 emailext(
                     subject: "FastAPI Docker Deployment Status",
                     body: "The FastAPI Docker deployment has been completed.",
-                    to: "rohitpatil@nimapinfotech.com",
+                    to: "bhushan881995@gmail.com",
                     mimeType: 'text/html'
                 )
             }
