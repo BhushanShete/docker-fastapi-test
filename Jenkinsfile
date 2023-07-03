@@ -28,10 +28,5 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            bat 'start /B docker-compose down'
-            bat 'start /B docker-compose -f docker-compose-monitoring.yml down'
-        }
-    }
+    
 }
