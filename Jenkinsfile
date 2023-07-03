@@ -28,6 +28,18 @@ pipeline {
         }
         
     }
+    post {
+        always {
+            script {
+                emailext(
+                    subject: "FastAPI Docker Deployment Status",
+                    body: "The FastAPI Docker deployment has been completed.",
+                    to: "rohitpatil@nimapinfotech.com",
+                    mimeType: 'text/html'
+                )
+            }
+        }
+    
 
 
     
